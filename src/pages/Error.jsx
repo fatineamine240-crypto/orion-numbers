@@ -1,7 +1,7 @@
 import { Link, useRouteError } from 'react-router-dom';
 import notFound from '../assets/404.svg';
 
-function Error() {
+export default function Error() {
   const error = useRouteError();
 
   if (error.status === 404) {
@@ -21,4 +21,3 @@ function Error() {
     </main>
   );
 }
-export default Error;

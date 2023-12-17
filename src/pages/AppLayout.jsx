@@ -1,7 +1,7 @@
 import { Outlet } from 'react-router-dom';
 import { Footer, Header } from '../components';
 
-function AppLayout() {
+export default function AppLayout() {
   return (
     <>
       <Header />
@@ -10,5 +10,3 @@ function AppLayout() {
     </>
   );
 }
-
-export default AppLayout;
