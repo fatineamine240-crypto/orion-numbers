@@ -2,25 +2,27 @@ import { useState } from 'react';
 import { QuestionBox, QuizHeader } from '../components';
 import { useLoaderData } from 'react-router-dom';
 
-export const loader = ({ params }) => {
-  console.log(params);
+export const loader = () => {
+  // let urlParams = new URL(document.location).searchParams;
+  const urlParams = new URLSearchParams(window.location.search);
+  // console.log(urlParams.has('table'));
+  // console.log(urlParams.get('table'));
+  console.log(urlParams.get('type'));
+
   const questions = [
     {
-      type: 'calculate',
       num1: 2,
       num2: 1,
       operation: 'x',
       answer: 2,
     },
     {
-      type: 'calculate',
       num1: 2,
       num2: 2,
       operation: 'x',
       answer: 4,
     },
     {
-      type: 'calculate',
       num1: 2,
       num2: 3,
       operation: 'x',
@@ -54,7 +56,7 @@ export default function Quiz() {
   };
 
   return (
-    <main>
+    <>
       <QuizHeader
         counter={currentQuestionIndex + 1}
         totalQuestions={questions.length}
@@ -65,6 +67,6 @@ export default function Quiz() {
         nextQuestion={nextQuestion}
         submitAnswer={submitAnswer}
       />
-    </main>
+    </>
   );
 }
