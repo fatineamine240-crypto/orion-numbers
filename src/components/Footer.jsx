@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
 import logo from '../assets/logo.png';
-// import Nav from './Nav';
 
 export default function Footer() {
   return (
@@ -10,8 +9,6 @@ export default function Footer() {
           <img className="w-auto h-8" src={logo} alt="Logo" />
           <p>Number Ninjas</p>
         </Link>
-
-        {/* <Nav /> */}
 
         <div className="flex">
           <svg
