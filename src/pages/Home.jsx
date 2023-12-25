@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <>
       <nav aria-label="Breadcrumb" className="flex mb-4">
-        <ul className="flex overflow-hidden rounded-lg border border-gray-200 text-gray-600 text-xs font-medium">
+        <ul className="flex overflow-hidden rounded-lg border border-gray-200 text-xs font-medium">
           {quizTypes.map((type, index) => {
             return (
               <li
@@ -15,8 +15,8 @@ export default function Home() {
                 className={`flex h-10 items-center gap-1.5 px-4 transition 
               ${
                 index === activeTabIndex
-                  ? 'bg-primary text-white cursor-default'
-                  : 'cursor-pointer hover:text-primary'
+                  ? 'bg-gray-100 cursor-default'
+                  : 'cursor-pointer hover:bg-gray-50'
               }`}
                 onClick={() => setActiveTabIndex(index)}
               >
