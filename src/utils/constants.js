@@ -1,5 +1,5 @@
 export const SORT_ORDER = {
-  ASC: 'asc',
-  DESC: 'desc',
+  ASC: 'ascending',
+  DESC: 'descending',
   RANDOM: 'random',
 };
