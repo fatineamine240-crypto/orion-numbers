@@ -1,43 +1,34 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { QuestionBox, QuizHeader } from '../components';
-import { useLoaderData } from 'react-router-dom';
-
-export const loader = () => {
-  // let urlParams = new URL(document.location).searchParams;
-  const urlParams = new URLSearchParams(window.location.search);
-  // console.log(urlParams.has('table'));
-  // console.log(urlParams.get('table'));
-  console.log(urlParams.get('type'));
-
-  const questions = [
-    {
-      num1: 2,
-      num2: 1,
-      operation: 'x',
-      answer: 2,
-    },
-    {
-      num1: 2,
-      num2: 2,
-      operation: 'x',
-      answer: 4,
-    },
-    {
-      num1: 2,
-      num2: 3,
-      operation: 'x',
-      answer: 6,
-    },
-  ];
-
-  return { questions };
-};
+import { getQuizQuestions, quizTypes } from '../utils/quizTypes';
 
 export default function Quiz() {
-  const { questions } = useLoaderData();
   const [correctAnswers, setCorrectAnswers] = useState(0);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [WrongAnswersIndexes, setWrongAnswersIndexes] = useState([]);
+  const [questions, setQuestions] = useState([]);
+  const [questionHeading, setQuestionHeading] = useState('');
+
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const quizType = urlParams.get('type');
+
+    const quizProps = quizTypes.find((type) => type.name === quizType);
+
+    if (!quizProps) {
+      throw new Error('Invalid quiz');
+    }
+
+    let props = {};
+    quizProps['props'].forEach((prop) => {
+      props = { ...props, [prop]: urlParams.get(prop) };
+    });
+
+    const quiz = getQuizQuestions(quizType, props);
+    setQuestionHeading(quiz.heading);
+
+    setQuestions(quiz.questions);
+  }, []);
 
   const nextQuestion = () => {
     if (currentQuestionIndex < questions.length - 1) {
@@ -48,7 +39,7 @@ export default function Quiz() {
   };
 
   const submitAnswer = (answer) => {
-    if (answer !== questions[currentQuestionIndex]['answer']) {
+    if (answer !== questions[currentQuestionIndex]['correctAnswer']) {
       setWrongAnswersIndexes([...WrongAnswersIndexes, currentQuestionIndex]);
     } else {
       setCorrectAnswers(correctAnswers + 1);
@@ -62,8 +53,10 @@ export default function Quiz() {
         totalQuestions={questions.length}
         correctAnswers={correctAnswers}
       />
+
       <QuestionBox
-        currentQuestion={questions[currentQuestionIndex]}
+        heading={questionHeading}
+        currentQuestion={questions[currentQuestionIndex]?.question}
         nextQuestion={nextQuestion}
         submitAnswer={submitAnswer}
       />

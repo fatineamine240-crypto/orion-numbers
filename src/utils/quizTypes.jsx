@@ -21,7 +21,13 @@ export const quizTypes = [
 export const getQuizQuestions = (quiz, props) => {
   switch (quiz) {
     case 'multiplication':
-      return generateMultiplicationQuestions(Number(props.table), props.order);
+      return {
+        questions: generateMultiplicationQuestions(
+          Number(props.table),
+          props.order
+        ),
+        heading: 'Multiply',
+      };
     default:
       throw new Error(`Invalid quiz type: ${quiz}`);
   }
