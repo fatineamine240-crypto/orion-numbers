@@ -1,11 +1,12 @@
 import PropTypes from 'prop-types';
-import ButtonSubmit from './ButtonSubmit';
+import BtnPrimary from '../BtnPrimary';
 
 export default function Form({
   children,
-  submitLabel,
+  submitLabel = 'Start Quiz',
   className,
   onSubmit,
+  submitDisabled,
   method,
   action,
 }) {
@@ -19,7 +20,11 @@ export default function Form({
       <div className="space-y-4">{children}</div>
 
       <div className="mt-6">
-        <ButtonSubmit text={submitLabel} />
+        <BtnPrimary
+          type="submit"
+          text={submitLabel}
+          disabled={submitDisabled}
+        />
       </div>
     </form>
   );
@@ -30,6 +35,7 @@ Form.propTypes = {
   submitLabel: PropTypes.string,
   className: PropTypes.string,
   onSubmit: PropTypes.func,
+  submitDisabled: PropTypes.bool,
   method: PropTypes.string,
   action: PropTypes.string,
 };
