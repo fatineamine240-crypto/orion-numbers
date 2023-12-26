@@ -35,7 +35,11 @@ export const generateMultiplicationQuestions = (
   multiplicand,
   order = SORT_ORDER.ASC
 ) => {
-  if (typeof multiplicand !== 'number' || multiplicand <= 0) {
+  if (
+    typeof multiplicand !== 'number' ||
+    multiplicand <= 0 ||
+    !Object.values(SORT_ORDER).includes(order)
+  ) {
     throw new Error('Multiplicand must be a number larger than 0');
   }
 
