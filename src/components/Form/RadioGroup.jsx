@@ -25,7 +25,7 @@ export default function RadioGroup({ name, labelText, options, onChange }) {
               value={option}
               checked={selected === option}
               onChange={handleChange}
-              className="form-radio text-blue-500 focus:ring-blue-300 focus:border-blue-400 dark:text-blue-300 dark:focus:border-blue-300 dark:focus:ring-blue-300 dark:checked:bg-gray-700 dark:checked:border-gray-700"
+              className="form-radio text-blue-500 focus:border-blue-400 dark:text-blue-300 dark:focus:border-blue-300 dark:checked:bg-gray-700 dark:checked:border-gray-700"
             />
             <label
               htmlFor={`${name}-${option}`}
