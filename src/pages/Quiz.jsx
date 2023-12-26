@@ -8,7 +8,7 @@ export default function Quiz() {
   const [WrongAnswersIndexes, setWrongAnswersIndexes] = useState([]);
   const [questions, setQuestions] = useState([]);
   const [questionHeading, setQuestionHeading] = useState('');
-  const [isCompleted, setIsCompleted] = useState(true);
+  const [isCompleted, setIsCompleted] = useState(false);
 
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search);
@@ -49,7 +49,7 @@ export default function Quiz() {
 
   return (
     <>
-      {isCompleted ? (
+      {!isCompleted ? (
         <>
           <QuizHeader
             counter={currentQuestionIndex + 1}
