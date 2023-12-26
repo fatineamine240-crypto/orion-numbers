@@ -1,25 +1,31 @@
 import PropTypes from 'prop-types';
 import Container from './Container';
 import { useEffect, useState } from 'react';
+import Button from './Button';
+import { useNavigate } from 'react-router-dom';
 
 export default function QuizResult({ result, total }) {
-  const [grade, setGrade] = useState('Keep practicing');
+  const navigate = useNavigate();
+  const [grade, setGrade] = useState('Keep practicing!');
 
   useEffect(() => {
     const percentage = (result / total) * 100;
 
-    if (percentage > 95) setGrade('Splendid');
-    else if (percentage > 85) setGrade('Excellent');
-    else if (percentage > 70) setGrade('Great job');
-    else if (percentage > 60) setGrade('Good');
+    if (percentage === 100) setGrade('Perfect! You nailed it!');
+    else if (percentage >= 90) setGrade('Excellent! Almost perfect!');
+    else if (percentage > 80) setGrade('Great job! You are doing well!');
+    else if (percentage > 60) setGrade('Good effort! Keep it up!!');
   }, [result, total]);
 
   return (
     <Container className="bg-white space-y-4">
+      <h2 className="text-3xl font-bold text-primary">{grade}</h2>
+
       <p className="text-lg">
         You&apos;ve got {result} / {total}
       </p>
-      <h2 className="text-3xl font-bold text-primary">{grade}!</h2>
+
+      <Button text="Get Another Quiz" onClick={() => navigate('/')} />
     </Container>
   );
 }
