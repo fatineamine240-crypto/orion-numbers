@@ -8,7 +8,8 @@ export default function QuizHeader({
   return (
     <div className="flex justify-between px-3 mb-2">
       <p>
-        <span className="text-sm">Correct Answers:</span> {correctAnswers}
+        <span className="text-sm">Correct Answers: </span>
+        {correctAnswers}
       </p>
       <p>
         <span className="text-sm">Question: </span>
