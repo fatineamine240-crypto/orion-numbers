@@ -16,10 +16,7 @@ export default function Form({
       method={method}
       action={action}
     >
-      <div className="space-y-4">
-        {/* <div className="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2"> */}
-        {children}
-      </div>
+      <div className="space-y-4">{children}</div>
 
       <div className="mt-6">
         <ButtonSubmit text={submitLabel} />
