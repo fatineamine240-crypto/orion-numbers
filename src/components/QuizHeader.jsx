@@ -6,11 +6,14 @@ export default function QuizHeader({
   totalQuestions,
 }) {
   return (
-    <div>
+    <div className="flex justify-between px-3 mb-2">
       <p>
-        Question #{counter} of {totalQuestions} Questions
+        <span className="text-sm">Correct Answers:</span> {correctAnswers}
       </p>
-      <p>Correct Answers: {correctAnswers}</p>
+      <p>
+        <span className="text-sm">Question: </span>
+        {counter} / {totalQuestions}
+      </p>
     </div>
   );
 }
