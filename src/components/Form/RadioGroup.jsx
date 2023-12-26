@@ -1,8 +1,13 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 
-export default function RadioGroup({ name, labelText, options }) {
+export default function RadioGroup({ name, labelText, options, onChange }) {
   const [selected, setSelected] = useState(options[0]);
+
+  const handleChange = (e) => {
+    setSelected(e.target.value);
+    onChange(e);
+  };
 
   return (
     <div>
@@ -19,7 +24,7 @@ export default function RadioGroup({ name, labelText, options }) {
               name={name}
               value={option}
               checked={selected === option}
-              onChange={(e) => setSelected(e.target.value)}
+              onChange={handleChange}
               className="form-radio text-blue-500 focus:ring-blue-300 focus:border-blue-400 dark:text-blue-300 dark:focus:border-blue-300 dark:focus:ring-blue-300 dark:checked:bg-gray-700 dark:checked:border-gray-700"
             />
             <label
@@ -39,4 +44,5 @@ RadioGroup.propTypes = {
   name: PropTypes.string,
   labelText: PropTypes.string,
   options: PropTypes.arrayOf(PropTypes.string),
+  onChange: PropTypes.func,
 };
