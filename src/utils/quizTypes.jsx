@@ -1,5 +1,5 @@
 import { MultiplicationTables } from '../components/QuizTypes';
-import { SORT_ORDER } from './constants';
+import { generateMultiplicationQuestions } from './math';
 
 export const quizComponents = [
   {
@@ -13,10 +13,16 @@ export const quizComponents = [
 
 export const quizTypes = [
   {
-    type: 'multiplication',
-    props: {
-      table: 6,
-      order: [SORT_ORDER['ASC'], SORT_ORDER['DESC'], SORT_ORDER['RANDOM']],
-    },
+    name: 'multiplication',
+    props: ['table', 'order'],
   },
 ];
+
+export const getQuizQuestions = (quiz, props) => {
+  switch (quiz) {
+    case 'multiplication':
+      return generateMultiplicationQuestions(Number(props.table), props.order);
+    default:
+      throw new Error(`Invalid quiz type: ${quiz}`);
+  }
+};
