@@ -6,13 +6,16 @@ export default function Input({
   defaultValue,
   labelText,
   required,
+  hideLabel = false,
   onChange,
 }) {
   return (
     <div>
-      <label htmlFor={name} className="text-gray-700 dark:text-gray-200">
-        {labelText || name}
-      </label>
+      {!hideLabel && (
+        <label htmlFor={name} className="text-gray-700 dark:text-gray-200">
+          {labelText || name}
+        </label>
+      )}
       <input
         type={type}
         id={name}
@@ -33,5 +36,6 @@ Input.propTypes = {
   defaultValue: PropTypes.string,
   labelText: PropTypes.string,
   required: PropTypes.bool,
+  hideLabel: PropTypes.bool,
   onChange: PropTypes.func,
 };
