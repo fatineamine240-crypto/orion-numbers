@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { QuestionBox, QuizHeader } from '../components';
+import { QuestionBox, QuizHeader, QuizResult } from '../components';
 import { getQuizQuestions, quizTypes } from '../utils/quizTypes';
 
 export default function Quiz() {
@@ -8,6 +8,7 @@ export default function Quiz() {
   const [WrongAnswersIndexes, setWrongAnswersIndexes] = useState([]);
   const [questions, setQuestions] = useState([]);
   const [questionHeading, setQuestionHeading] = useState('');
+  const [isCompleted, setIsCompleted] = useState(true);
 
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search);
@@ -34,7 +35,7 @@ export default function Quiz() {
     if (currentQuestionIndex < questions.length - 1) {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
     } else {
-      console.log('end');
+      setIsCompleted(true);
     }
   };
 
@@ -48,18 +49,24 @@ export default function Quiz() {
 
   return (
     <>
-      <QuizHeader
-        counter={currentQuestionIndex + 1}
-        totalQuestions={questions.length}
-        correctAnswers={correctAnswers}
-      />
+      {isCompleted ? (
+        <>
+          <QuizHeader
+            counter={currentQuestionIndex + 1}
+            totalQuestions={questions.length}
+            correctAnswers={correctAnswers}
+          />
 
-      <QuestionBox
-        heading={questionHeading}
-        currentQuestion={questions[currentQuestionIndex]?.question}
-        nextQuestion={nextQuestion}
-        submitAnswer={submitAnswer}
-      />
+          <QuestionBox
+            heading={questionHeading}
+            currentQuestion={questions[currentQuestionIndex]?.question}
+            nextQuestion={nextQuestion}
+            submitAnswer={submitAnswer}
+          />
+        </>
+      ) : (
+        <QuizResult total={questions.length} result={correctAnswers} />
+      )}
     </>
   );
 }

@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { Form, Input } from './Form';
-import { Button } from '.';
+import { Button, Container } from '.';
 
 export default function QuestionBox({
   heading,
@@ -27,8 +27,9 @@ export default function QuestionBox({
   };
 
   return (
-    <div className="block rounded-lg border-2 text-center shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]">
+    <Container>
       <div className="capitalize px-6 py-5 border-b-2">{heading}</div>
+
       <div>
         <h5 className="mb-2 pt-5 text-xl font-medium leading-tight">
           {currentQuestion} =
@@ -52,7 +53,7 @@ export default function QuestionBox({
           </div>
         </Form>
       </div>
-    </div>
+    </Container>
   );
 }
 
