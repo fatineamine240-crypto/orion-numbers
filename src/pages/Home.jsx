@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { quizTypes } from '../utils/quizTypes';
+import { quizComponents } from '../utils/quizTypes';
 
 export default function Home() {
   const [activeTabIndex, setActiveTabIndex] = useState(0);
@@ -8,7 +8,7 @@ export default function Home() {
     <>
       <nav aria-label="Breadcrumb" className="flex mb-4">
         <ul className="flex overflow-hidden rounded-lg border border-gray-200 text-xs font-medium">
-          {quizTypes.map((type, index) => {
+          {quizComponents.map((type, index) => {
             return (
               <li
                 key={type.name}
@@ -28,7 +28,7 @@ export default function Home() {
       </nav>
 
       <div className="ml-2">
-        {quizTypes[activeTabIndex].component ?? <p>Coming Soon!</p>}
+        {quizComponents[activeTabIndex].component ?? <p>Coming Soon!</p>}
       </div>
     </>
   );
