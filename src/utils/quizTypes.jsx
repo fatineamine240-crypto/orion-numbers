@@ -1,9 +1,9 @@
-import { TimesTable } from '../components/QuizTypes';
+import { MultiplicationTables } from '../components/QuizTypes';
 
 export const quizTypes = [
   {
-    name: 'Times Tables',
-    component: <TimesTable />,
+    name: 'Multiplication Tables',
+    component: <MultiplicationTables />,
   },
   {
     name: 'Calculations',

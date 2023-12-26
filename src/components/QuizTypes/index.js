@@ -1,1 +1,1 @@
-export { default as TimesTable } from './TimesTable';
+export { default as MultiplicationTables } from './MultiplicationTables';
