@@ -55,7 +55,7 @@ export default function TimesTable() {
           type="number"
           name="tableNumber"
           labelText="Table number"
-          defaultValue={selectedTable}
+          value={selectedTable}
           onChange={(e) => setSelectedTable(e.target.value)}
         />
       )}
