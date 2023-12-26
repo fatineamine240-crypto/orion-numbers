@@ -28,7 +28,7 @@ export default function QuestionBox({
 
   return (
     <Container>
-      <div className="capitalize px-6 py-5 border-b-2">{heading}</div>
+      <div className="capitalize pb-5 border-b-2">{heading}</div>
 
       <div>
         <h5 className="mb-2 pt-5 text-xl font-medium leading-tight">

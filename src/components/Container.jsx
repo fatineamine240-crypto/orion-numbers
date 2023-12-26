@@ -2,7 +2,9 @@ import PropTypes from 'prop-types';
 
 export default function Container({ children, className }) {
   return (
-    <div className={`rounded-lg border text-center shadow-md ${className}`}>
+    <div
+      className={`rounded-lg border text-center shadow-md px-4 py-6 ${className}`}
+    >
       {children}
     </div>
   );
