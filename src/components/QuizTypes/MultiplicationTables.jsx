@@ -1,8 +1,11 @@
 import { useState } from 'react';
-import { redirect } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Form, Input, RadioGroup, Select } from '../Form';
+import { Button } from '..';
 
 export default function TimesTable() {
+  const navigate = useNavigate();
+
   const defaultTable = '6';
   const OrderOptions = ['ascending', 'descending', 'random'];
 
@@ -33,13 +36,13 @@ export default function TimesTable() {
       throw new Error('Multiplicand must be a number larger than 0');
     }
 
-    console.log(multiplicand);
-    console.log(questionOrder);
-    return redirect('/quiz');
+    return navigate(
+      `/quiz?type=multiplication&table=${multiplicand}&order=${questionOrder}`
+    );
   };
 
   return (
-    <Form onSubmit={handleSubmit}>
+    <Form>
       <Select
         name="table"
         options={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 'Custom']}
@@ -64,6 +67,10 @@ export default function TimesTable() {
         checked={questionOrder}
         onChange={(e) => setQuestionOrder(e.target.value)}
       />
+
+      <div className="mt-6">
+        <Button type="submit" text="Start Quiz" onClick={handleSubmit} />
+      </div>
     </Form>
   );
 }
