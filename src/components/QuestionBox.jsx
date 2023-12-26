@@ -44,7 +44,7 @@ export default function QuestionBox({
             />
           </div>
 
-          <hr className="border-gray-200 dark:border-gray-700 my-3 md:my-5 -mx-4 md:-mx-10 xl:-mx-14" />
+          <hr className="border-gray-200 dark:border-gray-700 -mx-6" />
 
           <div className="mt-6">
             <Button
