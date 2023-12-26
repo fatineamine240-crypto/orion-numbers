@@ -7,15 +7,24 @@ export default function Button({
   disabled = false,
   onClick,
 }) {
+  const defaultClass =
+    'px-6 pb-2 pt-2.5 inline-block rounded text-xs font-medium uppercase leading-normal transition duration-150 ease-in-out focus:outline-none';
+
   const primaryClass =
-    'inline-block rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]';
+    'bg-primary text-white shadow-[0_4px_9px_-4px_#3b71ca] hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]';
   const cancelClass =
-    'inline-block rounded bg-gray-100 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal shadow-[0_4px_9px_-4px_#6b7280] transition duration-150 ease-in-out hover:bg-gray-200 hover:shadow-[0_8px_9px_-4px_rgba(107,114,128,0.3),0_4px_18px_0_rgba(107,114,128,0.2)] focus:bg-gray-200 focus:shadow-[0_8px_9px_-4px_rgba(107,114,128,0.3),0_4px_18px_0_rgba(107,114,128,0.2)] focus:outline-none focus:ring-0 active:bg-gray-300 active:shadow-[0_8px_9px_-4px_rgba(107,114,128,0.3),0_4px_18px_0_rgba(107,114,128,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(107,114,128,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(107,114,128,0.2),0_4px_18px_0_rgba(107,114,128,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(107,114,128,0.2),0_4px_18px_0_rgba(107,114,128,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(107,114,128,0.2),0_4px_18px_0_rgba(107,114,128,0.1)]';
+    'bg-gray-100 shadow-[0_4px_9px_-4px_#6b7280] hover:bg-gray-200 hover:shadow-[0_8px_9px_-4px_rgba(107,114,128,0.3),0_4px_18px_0_rgba(107,114,128,0.2)] focus:bg-gray-200 focus:shadow-[0_8px_9px_-4px_rgba(107,114,128,0.3),0_4px_18px_0_rgba(107,114,128,0.2)] active:bg-gray-300 active:shadow-[0_8px_9px_-4px_rgba(107,114,128,0.3),0_4px_18px_0_rgba(107,114,128,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(107,114,128,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(107,114,128,0.2),0_4px_18px_0_rgba(107,114,128,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(107,114,128,0.2),0_4px_18px_0_rgba(107,114,128,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(107,114,128,0.2),0_4px_18px_0_rgba(107,114,128,0.1)]';
+
+  const disabledStyles = 'cursor-not-allowed opacity-50';
+
+  const buttonClass = `${defaultClass} ${
+    primary ? primaryClass : cancelClass
+  } ${disabled ? disabledStyles : ''}`;
 
   return (
     <button
       type={type}
-      className={primary ? primaryClass : cancelClass}
+      className={buttonClass}
       disabled={disabled}
       onClick={onClick}
     >
