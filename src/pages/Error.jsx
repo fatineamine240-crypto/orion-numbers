@@ -6,7 +6,7 @@ export default function Error() {
 
   const containerClasses =
     'w-4xl mx-auto p-4 mt-10 flex flex-col items-center space-y-5 text-xl';
-  const btnClasses = 'text-sm bg-primary text-white rounded p-2';
+  const btnClasses = 'text-sm bg-teal-500 text-white rounded p-2';
 
   if (error.status === 404) {
     return (

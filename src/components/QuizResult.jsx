@@ -18,11 +18,11 @@ export default function QuizResult({ result, total }) {
   }, [result, total]);
 
   return (
-    <Container className="bg-white space-y-4">
-      <h2 className="text-3xl font-bold text-primary">{grade}</h2>
+    <Container className="space-y-4">
+      <h2 className="text-3xl font-bold text-teal-500">{grade}</h2>
 
       <p className="text-lg">
-        You&apos;ve got {result} / {total}
+        You have got {result} out of {total}
       </p>
 
       <Button text="Get Another Quiz" onClick={() => navigate('/')} />

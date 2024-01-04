@@ -11,11 +11,11 @@ export default function Button({
     'px-6 pb-2 pt-2.5 inline-block rounded text-xs font-medium uppercase leading-normal transition duration-150 ease-in-out focus:outline-none shadow hover:shadow-lg focus:shadow-lg active:shadow-lg';
 
   const primaryClass =
-    'bg-primary text-white hover:bg-secondary focus:bg-secondary active:bg-secondary';
+    'bg-teal-500 text-white hover:bg-teal-700 focus:bg-teal-700 active:bg-teal-700';
   const cancelClass =
     'bg-gray-100 dark:text-gray-800 dark:bg-gray-200 dark:hover:bg-white';
 
-  const disabledStyles = 'cursor-not-allowed opacity-50';
+  const disabledStyles = 'cursor-not-allowed opacity-75';
 
   const buttonClass = `${defaultClass} ${
     primary ? primaryClass : cancelClass

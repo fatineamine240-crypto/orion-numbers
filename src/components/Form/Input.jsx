@@ -23,7 +23,7 @@ export default function Input({
         value={value}
         required={required}
         onChange={onChange}
-        className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-gray-400 dark:focus:border-gray-300 outline-none"
+        className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-700 dark:text-gray-300 dark:border-gray-600 focus:border-gray-400 dark:focus:border-gray-300 outline-none"
         autoComplete="off"
       />
     </div>
