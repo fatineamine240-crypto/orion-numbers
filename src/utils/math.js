@@ -52,7 +52,7 @@ export const generateMultiplicationQuestions = (
   }
 
   const multiplicationQuestions = multipliers.map((multiplier) => {
-    const question = `${multiplicand} x ${multiplier}`;
+    const question = `${multiplicand} * ${multiplier}`;
     const correctAnswer = multiplicand * multiplier;
     return { question, correctAnswer };
   });
