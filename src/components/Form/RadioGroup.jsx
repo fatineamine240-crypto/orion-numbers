@@ -32,7 +32,7 @@ export default function RadioGroup({ name, labelText, options, onChange }) {
             />
             <label
               htmlFor={`${name}-${option.value || option}`}
-              className="ml-2 text-gray-700 dark:text-gray-300 transition-colors duration-300"
+              className="mx-2 text-gray-700 dark:text-gray-300 transition-colors duration-300"
             >
               {option.label || option}
             </label>

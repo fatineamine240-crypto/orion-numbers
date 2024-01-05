@@ -24,7 +24,10 @@ export default function Footer() {
 
   const toggleLanguage = () => {
     i18n.changeLanguage(i18n.language === 'en' ? 'ar' : 'en');
-    localStorage.language = i18n.language;
+    localStorage.lang = i18n.language;
+    document.documentElement.lang = i18n.language;
+    localStorage.dir = i18n.language === 'ar' ? 'rtl' : 'ltr';
+    document.documentElement.dir = i18n.language === 'ar' ? 'rtl' : 'ltr';
   };
 
   return (
