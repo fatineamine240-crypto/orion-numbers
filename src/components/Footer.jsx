@@ -1,9 +1,11 @@
-import { Link } from 'react-router-dom';
-import logo from '../assets/logo.png';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import logo from '../assets/logo.png';
 
 export default function Footer() {
   const [isDarkTheme, setIsDarkTheme] = useState(false);
+  const [t, i18n] = useTranslation('global');
 
   const iconClasses =
     'cursor-pointer h-5 w-5 text-gray-600 transition-colors duration-300 dark:text-gray-300 hover:text-teal-500 dark:hover:text-teal-300';
@@ -21,7 +23,7 @@ export default function Footer() {
   };
 
   const toggleLanguage = () => {
-    console.log('toggleLanguage');
+    i18n.changeLanguage(i18n.language === 'en' ? 'ar' : 'en');
   };
 
   return (
