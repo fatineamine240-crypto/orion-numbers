@@ -25,7 +25,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-white dark:bg-gray-800 px-4 md:px-10 xl:px-14 py-3 md:py-5 text-xs">
+    <footer className="bg-white dark:bg-gray-800 transition-colors duration-300 px-4 md:px-10 xl:px-14 py-3 md:py-5 text-xs">
       <div className="flex items-center justify-between ">
         <Link to="/" className="flex items-center gap-1">
           <img className="w-auto h-8" src={logo} alt="Logo" />

@@ -11,7 +11,10 @@ export default function RadioGroup({ name, labelText, options, onChange }) {
 
   return (
     <div>
-      <label htmlFor={name} className="text-gray-700 dark:text-gray-200">
+      <label
+        htmlFor={name}
+        className="text-gray-700 dark:text-gray-200 transition-colors duration-300"
+      >
         {labelText || name}
       </label>
 
@@ -25,11 +28,11 @@ export default function RadioGroup({ name, labelText, options, onChange }) {
               value={option}
               checked={selected === option}
               onChange={handleChange}
-              className="form-radio text-teal-500 focus:border-teal-700 dark:text-blue-300 dark:focus:border-blue-300 dark:checked:bg-gray-700 dark:checked:border-gray-700"
+              className="form-radio text-teal-500 focus:border-teal-700 dark:text-blue-300 dark:focus:border-blue-300 dark:checked:bg-gray-700 dark:checked:border-gray-700 transition-colors duration-300"
             />
             <label
               htmlFor={`${name}-${option}`}
-              className="ml-2 text-gray-700 dark:text-gray-300"
+              className="ml-2 text-gray-700 dark:text-gray-300 transition-colors duration-300"
             >
               {option}
             </label>

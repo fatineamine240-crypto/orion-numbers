@@ -13,7 +13,7 @@ export default function Button({
   const primaryClass =
     'bg-teal-500 text-white hover:bg-teal-700 focus:bg-teal-700 active:bg-teal-700';
   const cancelClass =
-    'bg-gray-100 dark:text-gray-800 dark:bg-gray-200 dark:hover:bg-white';
+    'bg-gray-100 dark:text-gray-800 dark:bg-gray-200 dark:hover:bg-white transition-colors duration-300';
 
   const disabledStyles = 'cursor-not-allowed opacity-75';
 

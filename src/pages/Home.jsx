@@ -12,10 +12,10 @@ export default function Home() {
             return (
               <li
                 key={type.name}
-                className={`flex h-10 items-center gap-1.5 px-4 transition ${
+                className={`flex h-10 items-center gap-1.5 px-4 transition-colors duration-300 cursor-pointer ${
                   index === activeTabIndex
-                    ? 'cursor-default bg-gray-300 dark:bg-gray-100 dark:text-gray-700'
-                    : 'cursor-pointer hover:bg-gray-50'
+                    ? 'bg-gray-200 dark:bg-gray-100 dark:text-gray-700'
+                    : ''
                 }`}
                 onClick={() => setActiveTabIndex(index)}
               >
