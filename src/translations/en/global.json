@@ -1,6 +1,42 @@
 {
-  "app_name": {
-    "word1": "Number",
-    "word2": "Ninjas"
+  "appName": {
+    "firstWord": "Number",
+    "secondWord": "Ninjas",
+    "full": "Number Ninjas"
+  },
+  "math": {
+    "table": "Table",
+    "questionOrder": "Question Order",
+    "ascending": "Ascending",
+    "descending": "Descending",
+    "random": "Random",
+    "startQuiz": "Start Quiz",
+    "calculations": "Calculations",
+    "multiplicationTables": "Multiplication Tables",
+    "multiply": "Multiply",
+    "question": "Question",
+    "correctAnswers": "Correct Answers",
+    "checkAnswer": "Check Answer",
+    "answered": "Answered",
+    "getAnotherQuiz": "Get Another Quiz",
+    "custom": "Custom",
+    "tableNumber": "Table Number"
+  },
+  "result": {
+    "youHaveGot": "You have Got",
+    "outOf": "out of",
+    "keepPracticing": "Keep Practicing!",
+    "perfect": "Perfect! You Nailed It!",
+    "excellent": "Excellent! Almost Perfect!",
+    "greatJob": "Great Job! You Are Doing Well!",
+    "goodEffort": "Good Effort! Keep It Up!"
+  },
+  "error": {
+    "backHome": "Back home",
+    "somethingWentWrong": "Something went wrong",
+    "pageNotFound": "Page not found"
+  },
+  "general": {
+    "soon": "Coming Soon!"
   }
 }

@@ -4,8 +4,8 @@ import { useTranslation } from 'react-i18next';
 import logo from '../assets/logo.png';
 
 export default function Footer() {
-  const [isDarkTheme, setIsDarkTheme] = useState(false);
   const [t, i18n] = useTranslation('global');
+  const [isDarkTheme, setIsDarkTheme] = useState(false);
 
   const iconClasses =
     'cursor-pointer h-5 w-5 text-gray-600 transition-colors duration-300 dark:text-gray-300 hover:text-teal-500 dark:hover:text-teal-300';
@@ -24,6 +24,7 @@ export default function Footer() {
 
   const toggleLanguage = () => {
     i18n.changeLanguage(i18n.language === 'en' ? 'ar' : 'en');
+    localStorage.language = i18n.language;
   };
 
   return (
@@ -31,7 +32,7 @@ export default function Footer() {
       <div className="flex items-center justify-between ">
         <Link to="/" className="flex items-center gap-1">
           <img className="w-auto h-8" src={logo} alt="Logo" />
-          <p>Number Ninjas</p>
+          <p>{t('appName.full')}</p>
         </Link>
 
         <div className="flex gap-2 items-center">

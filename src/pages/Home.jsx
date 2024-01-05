@@ -1,7 +1,10 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { quizComponents } from '../utils/quizTypes';
 
 export default function Home() {
+  // eslint-disable-next-line
+  const [t, i18n] = useTranslation('global');
   const [activeTabIndex, setActiveTabIndex] = useState(0);
 
   return (
@@ -19,7 +22,7 @@ export default function Home() {
                 }`}
                 onClick={() => setActiveTabIndex(index)}
               >
-                <span>{type.name}</span>
+                <span>{t(`math.${type.name}`)}</span>
               </li>
             );
           })}
@@ -47,7 +50,7 @@ export default function Home() {
       </nav> */}
 
       <div>
-        {quizComponents[activeTabIndex].component ?? <p>Coming Soon!</p>}
+        {quizComponents[activeTabIndex].component ?? <p>{t('general.soon')}</p>}
       </div>
     </>
   );

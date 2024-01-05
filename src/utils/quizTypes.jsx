@@ -3,11 +3,11 @@ import { generateMultiplicationQuestions } from './math';
 
 export const quizComponents = [
   {
-    name: 'Multiplication Tables',
+    name: 'multiplicationTables',
     component: <MultiplicationTables />,
   },
   {
-    name: 'Calculations',
+    name: 'calculations',
   },
 ];
 
@@ -26,7 +26,7 @@ export const getQuizQuestions = (quiz, props) => {
           Number(props.table),
           props.order
         ),
-        heading: 'Multiply',
+        heading: 'multiply',
       };
     default:
       throw new Error(`Invalid quiz type: ${quiz}`);

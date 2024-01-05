@@ -1,31 +1,33 @@
 import PropTypes from 'prop-types';
-import Container from './Container';
 import { useEffect, useState } from 'react';
-import Button from './Button';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import { Button, Container } from '.';
 
 export default function QuizResult({ result, total }) {
+  // eslint-disable-next-line
+  const [t, i18n] = useTranslation('global');
   const navigate = useNavigate();
-  const [grade, setGrade] = useState('Keep practicing!');
+  const [grade, setGrade] = useState(t('result.keepPracticing'));
 
   useEffect(() => {
     const percentage = (result / total) * 100;
 
-    if (percentage === 100) setGrade('Perfect! You nailed it!');
-    else if (percentage >= 90) setGrade('Excellent! Almost perfect!');
-    else if (percentage > 80) setGrade('Great job! You are doing well!');
-    else if (percentage > 60) setGrade('Good effort! Keep it up!!');
-  }, [result, total]);
+    if (percentage === 100) setGrade(t('result.perfect'));
+    else if (percentage >= 90) setGrade(t('result.excellent'));
+    else if (percentage > 80) setGrade(t('result.greatJob'));
+    else if (percentage > 60) setGrade(t('result.goodEffort'));
+  }, [result, total, t]);
 
   return (
     <Container className="space-y-4">
       <h2 className="text-3xl font-bold text-teal-500">{grade}</h2>
 
       <p className="text-lg">
-        You have got {result} out of {total}
+        {`${t('result.youHaveGot')} ${result} ${t('result.outOf')} ${total}`}
       </p>
 
-      <Button text="Get Another Quiz" onClick={() => navigate('/')} />
+      <Button text={t('math.getAnotherQuiz')} onClick={() => navigate('/')} />
     </Container>
   );
 }

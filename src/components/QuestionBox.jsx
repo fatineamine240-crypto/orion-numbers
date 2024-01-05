@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Form, Input } from './Form';
 import { Button, Container } from '.';
 
@@ -9,6 +10,8 @@ export default function QuestionBox({
   nextQuestion,
   submitAnswer,
 }) {
+  // eslint-disable-next-line
+  const [t, i18n] = useTranslation('global');
   const [answer, setAnswer] = useState('');
   const [isAnswered, setIsAnswered] = useState(false);
 
@@ -46,7 +49,7 @@ export default function QuestionBox({
           <div className="py-5 !mt-5 border-t-2">
             <Button
               type="submit"
-              text={!isAnswered ? 'Check Answer' : 'Answered'}
+              text={!isAnswered ? t('math.checkAnswer') : t('math.answered')}
               primary={!isAnswered}
               disabled={isAnswered}
             />

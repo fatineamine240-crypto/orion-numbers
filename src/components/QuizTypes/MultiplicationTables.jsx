@@ -1,9 +1,12 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { Form, Input, RadioGroup, Select } from '../Form';
 import { Button } from '..';
 
 export default function TimesTable() {
+  // eslint-disable-next-line
+  const [t, i18n] = useTranslation('global');
   const navigate = useNavigate();
 
   const defaultTable = '6';
@@ -44,32 +47,50 @@ export default function TimesTable() {
   return (
     <Form>
       <Select
+        labelText={t('math.table')}
         name="table"
-        options={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 'Custom']}
+        options={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, t('math.custom')]}
         defaultValue={selectedOption}
         onChange={handleSelectChange}
       />
 
-      {selectedOption === 'Custom' && (
+      {selectedOption === t('math.custom') && (
         <Input
           type="number"
           name="tableNumber"
-          labelText="Table number"
+          labelText={t('math.tableNumber')}
           value={selectedTable}
           onChange={(e) => setSelectedTable(e.target.value)}
         />
       )}
 
       <RadioGroup
-        labelText="Question Order"
+        labelText={t('math.questionOrder')}
         name="order"
-        options={['ascending', 'descending', 'random']}
+        options={[
+          {
+            value: 'ascending',
+            label: t('math.ascending'),
+          },
+          {
+            value: 'descending',
+            label: t('math.descending'),
+          },
+          {
+            value: 'random',
+            label: t('math.random'),
+          },
+        ]}
         checked={questionOrder}
         onChange={(e) => setQuestionOrder(e.target.value)}
       />
 
       <div className="mt-6">
-        <Button type="submit" text="Start Quiz" onClick={handleSubmit} />
+        <Button
+          type="submit"
+          text={t('math.startQuiz')}
+          onClick={handleSubmit}
+        />
       </div>
     </Form>
   );

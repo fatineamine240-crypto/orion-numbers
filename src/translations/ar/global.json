@@ -1,6 +1,42 @@
 {
-  "app_name": {
-    "word1": "نينجا",
-    "word2": "الأرقام"
+  "appName": {
+    "firstWord": "نينجا",
+    "secondWord": "الأرقام",
+    "full": "نينجا الأرقام"
+  },
+  "math": {
+    "table": "جدول",
+    "questionOrder": "ترتيب الأسئلة",
+    "ascending": "تصاعدي",
+    "descending": "تنازلي",
+    "random": "عشوائي",
+    "startQuiz": "بدء الاختبار",
+    "calculations": "حسابات",
+    "multiplicationTables": "جداول الضرب",
+    "multiply": "ضرب",
+    "question": "سؤال",
+    "correctAnswers": "الإجابات الصحيحة",
+    "checkAnswer": "تحقق من الإجابة",
+    "answered": "تم الإجابة",
+    "getAnotherQuiz": "الحصول على اختبار آخر",
+    "custom": "مخصص",
+    "tableNumber": "جدول رقم"
+  },
+  "result": {
+    "youHaveGot": "لقد حصلت على",
+    "outOf": "من",
+    "keepPracticing": "واصل التمرين!",
+    "perfect": "ممتاز! لقد نجحت!",
+    "excellent": "ممتاز! قاربت على الكمال!",
+    "greatJob": "عمل رائع! أنت تفعل جيدًا!",
+    "goodEffort": "محاولة جيدة! استمر في ذلك!"
+  },
+  "error": {
+    "backHome": "العودة إلى الصفحة الرئيسية",
+    "somethingWentWrong": "حدث خطأ ما",
+    "pageNotFound": "الصفحة غير موجودة"
+  },
+  "general": {
+    "soon": "قريباُ!"
   }
 }

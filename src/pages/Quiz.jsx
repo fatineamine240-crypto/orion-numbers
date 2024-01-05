@@ -1,8 +1,11 @@
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { QuestionBox, QuizHeader, QuizResult } from '../components';
 import { getQuizQuestions, quizTypes } from '../utils/quizTypes';
 
 export default function Quiz() {
+  // eslint-disable-next-line
+  const [t, i18n] = useTranslation('global');
   const [correctAnswers, setCorrectAnswers] = useState(0);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [WrongAnswersIndexes, setWrongAnswersIndexes] = useState([]);
@@ -26,10 +29,10 @@ export default function Quiz() {
     });
 
     const quiz = getQuizQuestions(quizType, props);
-    setQuestionHeading(quiz.heading);
+    setQuestionHeading(t(`math.${quiz.heading}`));
 
     setQuestions(quiz.questions);
-  }, []);
+  }, [t]);
 
   const nextQuestion = () => {
     if (currentQuestionIndex < questions.length - 1) {

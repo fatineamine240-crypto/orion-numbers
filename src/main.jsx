@@ -8,7 +8,7 @@ import global_en from './translations/en/global.json';
 import global_ar from './translations/ar/global.json';
 
 i18next.init({
-  lng: 'en',
+  lng: localStorage.language || 'ar',
   debug: import.meta.env.DEV,
   resources: {
     en: {
