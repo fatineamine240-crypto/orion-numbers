@@ -20,7 +20,8 @@
     "answered": "Answered",
     "getAnotherQuiz": "Get Another Quiz",
     "custom": "Custom",
-    "tableNumber": "Table Number"
+    "tableNumber": "Table Number",
+    "of": "of"
   },
   "result": {
     "youHaveGot": "You have Got",

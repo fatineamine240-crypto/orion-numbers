@@ -20,7 +20,8 @@
     "answered": "تم الإجابة",
     "getAnotherQuiz": "الحصول على اختبار آخر",
     "custom": "مخصص",
-    "tableNumber": "جدول رقم"
+    "tableNumber": "جدول رقم",
+    "of": "من"
   },
   "result": {
     "youHaveGot": "لقد حصلت على",

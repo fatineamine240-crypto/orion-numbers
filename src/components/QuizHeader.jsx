@@ -17,7 +17,7 @@ export default function QuizHeader({
       </p>
       <p>
         <span className="text-sm">{t('math.question')}: </span>
-        {counter} / {totalQuestions}
+        {`${counter} ${t('math.of')} ${totalQuestions}`}
       </p>
     </div>
   );
