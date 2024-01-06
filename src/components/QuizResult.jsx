@@ -16,7 +16,7 @@ export default function QuizResult({ result, total }) {
     if (percentage === 100) setGrade(t('result.perfect'));
     else if (percentage >= 90) setGrade(t('result.excellent'));
     else if (percentage > 80) setGrade(t('result.greatJob'));
-    else if (percentage > 60) setGrade(t('result.goodEffort'));
+    else if (percentage > 50) setGrade(t('result.goodEffort'));
   }, [result, total, t]);
 
   return (
@@ -29,7 +29,9 @@ export default function QuizResult({ result, total }) {
 
       <Button text={t('math.getAnotherQuiz')} onClick={() => navigate('/')} />
 
-      {grade !== t('result.keepPracticing') && <Confetti />}
+      {grade !== t('result.keepPracticing') && (
+        <Confetti percentage={(result / total) * 100} />
+      )}
     </Container>
   );
 }
