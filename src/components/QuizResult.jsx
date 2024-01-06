@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { Button, Container } from '.';
+import { Button, Container, Confetti } from '.';
 
 export default function QuizResult({ result, total }) {
   // eslint-disable-next-line
@@ -28,6 +28,8 @@ export default function QuizResult({ result, total }) {
       </p>
 
       <Button text={t('math.getAnotherQuiz')} onClick={() => navigate('/')} />
+
+      {grade !== t('result.keepPracticing') && <Confetti />}
     </Container>
   );
 }
