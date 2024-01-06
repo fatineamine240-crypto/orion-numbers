@@ -1,6 +1,7 @@
 import { Link, useRouteError } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import notFound from '../assets/404.svg';
+import wrong from '../assets/error-run.svg';
+import notFound from '../assets/error-dog.svg';
 
 export default function Error() {
   // eslint-disable-next-line
@@ -12,21 +13,19 @@ export default function Error() {
   const btnClasses =
     'text-sm bg-teal-500 hover:bg-teal-700 transition-colors duration-300 text-white rounded p-2';
 
-  if (error.status === 404) {
-    return (
-      <main className={containerClasses}>
-        <img src={notFound} alt="404" className="h-96" />
-        <h2>{t('error.pageNotFound')}</h2>
-        <Link to="/" className={btnClasses}>
-          {t('error.backHome')}
-        </Link>
-      </main>
-    );
-  }
-
   return (
     <main className={containerClasses}>
-      <h3>{t('error.somethingWentWrong')}</h3>
+      <img
+        src={error.status === 404 ? notFound : wrong}
+        alt="404"
+        className="h-80"
+      />
+      <h2>
+        {error.status === 404
+          ? t('error.pageNotFound')
+          : t('error.somethingWentWrong')}
+        !
+      </h2>
       <Link to="/" className={btnClasses}>
         {t('error.backHome')}
       </Link>
