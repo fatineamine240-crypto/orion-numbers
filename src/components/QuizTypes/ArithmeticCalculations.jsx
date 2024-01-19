@@ -37,7 +37,7 @@ export default function ArithmeticCalculations() {
     }
 
     return navigate(
-      `/quiz?type=arithmetic&operation=${operationType}&difficulty=${difficulty}&numberOfQuestions=${numberOfQuestions}`
+      `/quiz?type=arithmeticCalculations&operation=${operationType}&difficulty=${difficulty}&numberOfQuestions=${numberOfQuestions}`
     );
   };
 

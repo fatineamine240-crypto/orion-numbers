@@ -3,8 +3,8 @@ import {
   ArithmeticCalculations,
 } from '../components/QuizTypes';
 import {
-  generateArithmeticQuestions,
   generateMultiplicationQuestions,
+  generateArithmeticQuestions,
 } from './math';
 
 export const quizComponents = [
@@ -20,18 +20,18 @@ export const quizComponents = [
 
 export const quizTypes = [
   {
-    name: 'multiplication',
+    name: 'multiplicationTables',
     props: ['table', 'order'],
   },
   {
-    name: 'arithmetic',
+    name: 'arithmeticCalculations',
     props: ['operation', 'difficulty', 'numberOfQuestions'],
   },
 ];
 
 export const getQuizQuestions = (quiz, props) => {
   switch (quiz) {
-    case 'multiplication':
+    case 'multiplicationTables':
       return {
         questions: generateMultiplicationQuestions(
           Number(props.table),
@@ -39,7 +39,7 @@ export const getQuizQuestions = (quiz, props) => {
         ),
         heading: 'multiply',
       };
-    case 'arithmetic':
+    case 'arithmeticCalculations':
       return {
         questions: generateArithmeticQuestions(
           props.operation,

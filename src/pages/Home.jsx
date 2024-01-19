@@ -1,11 +1,26 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { quizComponents } from '../utils/quizTypes';
+import { Link } from 'react-router-dom';
 
 export default function Home() {
   // eslint-disable-next-line
   const [t, i18n] = useTranslation('global');
   const [activeTabIndex, setActiveTabIndex] = useState(0);
+
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const quizType = urlParams.get('type');
+    const quizTypeIndex = quizComponents.findIndex(
+      (item) => item.name === quizType
+    );
+
+    if (quizTypeIndex !== -1) {
+      setActiveTabIndex(
+        quizComponents.findIndex((item) => item.name === quizType)
+      );
+    }
+  }, []);
 
   return (
     <>
@@ -22,12 +37,16 @@ export default function Home() {
                 }`}
                 onClick={() => setActiveTabIndex(index)}
               >
-                <span>{t(`math.${type.name}`)}</span>
+                <Link to={`/?type=${type.name}`}>{t(`math.${type.name}`)}</Link>
               </li>
             );
           })}
         </ul>
       </nav>
+
+      <section>
+        {quizComponents[activeTabIndex].component ?? <p>{t('general.soon')}</p>}
+      </section>
 
       {/* <nav aria-label="Breadcrumb" className="flex mb-4">
         <ul className="flex overflow-hidden rounded-lg border border-gray-200 text-xs font-medium">
@@ -48,10 +67,6 @@ export default function Home() {
           })}
         </ul>
       </nav> */}
-
-      <div>
-        {quizComponents[activeTabIndex].component ?? <p>{t('general.soon')}</p>}
-      </div>
     </>
   );
 }

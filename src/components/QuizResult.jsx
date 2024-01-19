@@ -9,6 +9,7 @@ export default function QuizResult({ result, total }) {
   const [t, i18n] = useTranslation('global');
   const navigate = useNavigate();
   const [grade, setGrade] = useState(t('result.keepPracticing'));
+  const [quizTypeUrl, setQuizTypeUrl] = useState('/');
 
   useEffect(() => {
     const percentage = (result / total) * 100;
@@ -17,6 +18,9 @@ export default function QuizResult({ result, total }) {
     else if (percentage >= 90) setGrade(t('result.excellent'));
     else if (percentage > 80) setGrade(t('result.greatJob'));
     else if (percentage > 50) setGrade(t('result.goodEffort'));
+
+    const urlParams = new URLSearchParams(window.location.search);
+    setQuizTypeUrl('/?type=' + urlParams.get('type'));
   }, [result, total, t]);
 
   return (
@@ -27,7 +31,10 @@ export default function QuizResult({ result, total }) {
         {`${t('result.youHaveGot')} ${result} ${t('result.outOf')} ${total}`}
       </p>
 
-      <Button text={t('math.getAnotherQuiz')} onClick={() => navigate('/')} />
+      <Button
+        text={t('math.getAnotherQuiz')}
+        onClick={() => navigate(quizTypeUrl)}
+      />
 
       {grade !== t('result.keepPracticing') && (
         <Confetti percentage={(result / total) * 100} />

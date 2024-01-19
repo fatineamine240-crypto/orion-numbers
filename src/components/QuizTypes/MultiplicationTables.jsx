@@ -40,7 +40,7 @@ export default function TimesTable() {
     }
 
     return navigate(
-      `/quiz?type=multiplication&table=${multiplicand}&order=${questionOrder}`
+      `/quiz?type=multiplicationTables&table=${multiplicand}&order=${questionOrder}`
     );
   };
 
