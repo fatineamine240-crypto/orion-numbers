@@ -81,7 +81,6 @@ export default function TimesTable() {
             label: t(`math.${OrderOptions[2]}`),
           },
         ]}
-        checked={questionOrder}
         onChange={(e) => setQuestionOrder(e.target.value)}
       />
 

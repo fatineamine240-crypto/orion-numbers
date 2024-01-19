@@ -1,8 +1,16 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 
-export default function RadioGroup({ name, labelText, options, onChange }) {
-  const [selected, setSelected] = useState(options[0].value || options[0]);
+export default function RadioGroup({
+  name,
+  labelText,
+  options,
+  onChange,
+  checked,
+}) {
+  const [selected, setSelected] = useState(
+    checked || options[0].value || options[0]
+  );
 
   const handleChange = (e) => {
     setSelected(e.target.value);
@@ -48,4 +56,5 @@ RadioGroup.propTypes = {
   labelText: PropTypes.string,
   options: PropTypes.array,
   onChange: PropTypes.func,
+  checked: PropTypes.string,
 };
