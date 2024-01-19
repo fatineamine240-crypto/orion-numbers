@@ -50,6 +50,7 @@ export default function Quiz() {
     }
   };
 
+  console.log(questions);
   return (
     <>
       {!isCompleted ? (
@@ -63,6 +64,9 @@ export default function Quiz() {
           <QuestionBox
             heading={questionHeading}
             currentQuestion={questions[currentQuestionIndex]?.question}
+            currentQuestionAnswer={
+              questions[currentQuestionIndex]?.correctAnswer
+            }
             nextQuestion={nextQuestion}
             submitAnswer={submitAnswer}
           />

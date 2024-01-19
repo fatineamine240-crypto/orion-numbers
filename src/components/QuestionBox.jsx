@@ -7,6 +7,7 @@ import { Button, Container } from '.';
 export default function QuestionBox({
   heading,
   currentQuestion,
+  currentQuestionAnswer,
   nextQuestion,
   submitAnswer,
 }) {
@@ -34,8 +35,22 @@ export default function QuestionBox({
       <div className="capitalize pb-5 border-b-2">{heading}</div>
 
       <div>
-        <h5 className="mb-2 pt-5 text-xl font-medium leading-tight">
+        <h5 className="mb-2 pt-5 text-xl font-medium leading-tight flex justify-center gap-2">
           {currentQuestion} =
+          {isAnswered && (
+            <div className="flex justify-center items-center relative">
+              &nbsp;
+              <span
+                className={`text-sm absolute ${
+                  Number(answer) === currentQuestionAnswer
+                    ? 'text-green-500'
+                    : 'text-red-500'
+                }`}
+              >
+                {currentQuestionAnswer}
+              </span>
+            </div>
+          )}
         </h5>
         <Form onSubmit={handleSubmit}>
           <div className="flex justify-center items-center gap-4">
@@ -43,6 +58,7 @@ export default function QuestionBox({
               type="number"
               value={answer}
               onChange={(e) => setAnswer(e.target.value)}
+              autoFocus
             />
           </div>
 
@@ -63,6 +79,7 @@ export default function QuestionBox({
 QuestionBox.propTypes = {
   heading: PropTypes.string,
   currentQuestion: PropTypes.string,
+  currentQuestionAnswer: PropTypes.number,
   nextQuestion: PropTypes.func,
   submitAnswer: PropTypes.func,
 };
