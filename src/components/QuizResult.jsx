@@ -16,7 +16,7 @@ export default function QuizResult({ result, total }) {
 
     if (percentage === 100) setGrade(t('result.perfect'));
     else if (percentage >= 90) setGrade(t('result.excellent'));
-    else if (percentage > 80) setGrade(t('result.greatJob'));
+    else if (percentage >= 80) setGrade(t('result.greatJob'));
     else if (percentage > 50) setGrade(t('result.goodEffort'));
 
     const urlParams = new URLSearchParams(window.location.search);
