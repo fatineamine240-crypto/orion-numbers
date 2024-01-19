@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <>
       <nav className="bg-white shadow dark:bg-gray-800 transition-colors duration-300 mb-4 rounded">
-        <ul className="container flex items-center gap-6 px-6 py-5 mx-auto text-gray-600 capitalize dark:text-gray-300 transition-colors duration-300">
+        <ul className="container flex flex-wrap items-center gap-6 p-4 md:px-6 md:py-5 mx-auto text-gray-600 capitalize dark:text-gray-300 transition-colors duration-300">
           {quizComponents.map((type, index) => {
             return (
               <li
