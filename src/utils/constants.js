@@ -3,3 +3,9 @@ export const SORT_ORDER = {
   DESC: 'descending',
   RANDOM: 'random',
 };
+
+export const DIFFICULTY_OPTIONS = {
+  SIMPLE: 'simple',
+  INTERMEDIATE: 'intermediate',
+  CHALLENGING: 'challenging',
+};
