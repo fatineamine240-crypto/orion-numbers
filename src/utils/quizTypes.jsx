@@ -1,5 +1,11 @@
-import { MultiplicationTables } from '../components/QuizTypes';
-import { generateMultiplicationQuestions } from './math';
+import {
+  MultiplicationTables,
+  ArithmeticCalculations,
+} from '../components/QuizTypes';
+import {
+  generateArithmeticQuestions,
+  generateMultiplicationQuestions,
+} from './math';
 
 export const quizComponents = [
   {
@@ -7,7 +13,8 @@ export const quizComponents = [
     component: <MultiplicationTables />,
   },
   {
-    name: 'calculations',
+    name: 'arithmeticCalculations',
+    component: <ArithmeticCalculations />,
   },
 ];
 
@@ -15,6 +22,10 @@ export const quizTypes = [
   {
     name: 'multiplication',
     props: ['table', 'order'],
+  },
+  {
+    name: 'arithmetic',
+    props: ['operation', 'difficulty', 'numberOfQuestions'],
   },
 ];
 
@@ -27,6 +38,15 @@ export const getQuizQuestions = (quiz, props) => {
           props.order
         ),
         heading: 'multiply',
+      };
+    case 'arithmetic':
+      return {
+        questions: generateArithmeticQuestions(
+          props.operation,
+          props.difficulty,
+          Number(props.numberOfQuestions)
+        ),
+        heading: 'calculate',
       };
     default:
       throw new Error(`Invalid quiz type: ${quiz}`);
