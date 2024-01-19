@@ -50,7 +50,6 @@ export default function Quiz() {
     }
   };
 
-  console.log(questions);
   return (
     <>
       {!isCompleted ? (
