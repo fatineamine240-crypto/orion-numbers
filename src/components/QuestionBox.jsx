@@ -35,31 +35,30 @@ export default function QuestionBox({
       <div className="capitalize pb-5 border-b-2">{heading}</div>
 
       <div>
-        <h5 className="mb-2 pt-5 text-xl font-medium leading-tight flex justify-center gap-2">
-          {currentQuestion} =
-          {isAnswered && (
-            <div className="flex justify-center items-center relative">
-              &nbsp;
-              <span
-                className={`text-sm absolute ${
+        <h5 className="mb-2 pt-5 text-xl font-medium leading-tight">
+          <span>{currentQuestion} =</span>
+        </h5>
+        <Form onSubmit={handleSubmit}>
+          <div className="flex justify-center items-center gap-4 min-h-[40px]">
+            {!isAnswered ? (
+              <Input
+                type="number"
+                value={answer}
+                onChange={(e) => setAnswer(e.target.value)}
+                autoFocus
+                hideLabel
+              />
+            ) : (
+              <p
+                className={`font-medium text-xl ${
                   Number(answer) === currentQuestionAnswer
                     ? 'text-green-500'
                     : 'text-red-500'
                 }`}
               >
                 {currentQuestionAnswer}
-              </span>
-            </div>
-          )}
-        </h5>
-        <Form onSubmit={handleSubmit}>
-          <div className="flex justify-center items-center gap-4">
-            <Input
-              type="number"
-              value={answer}
-              onChange={(e) => setAnswer(e.target.value)}
-              autoFocus
-            />
+              </p>
+            )}
           </div>
 
           <div className="py-5 !mt-5 border-t-2">
