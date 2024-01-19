@@ -70,15 +70,15 @@ export default function TimesTable() {
         options={[
           {
             value: OrderOptions[0],
-            label: t('math.ascending'),
+            label: t(`math.${OrderOptions[0]}`),
           },
           {
             value: OrderOptions[1],
-            label: t('math.descending'),
+            label: t(`math.${OrderOptions[1]}`),
           },
           {
             value: OrderOptions[2],
-            label: t('math.random'),
+            label: t(`math.${OrderOptions[2]}`),
           },
         ]}
         checked={questionOrder}
