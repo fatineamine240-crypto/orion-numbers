@@ -11,7 +11,7 @@
     "descending": "Descending",
     "random": "Random",
     "startQuiz": "Start Quiz",
-    "calculations": "Calculations",
+    "arithmeticCalculations": "Arithmetic Calculations",
     "multiplicationTables": "Multiplication Tables",
     "multiply": "Multiply",
     "question": "Question",
@@ -21,7 +21,18 @@
     "getAnotherQuiz": "Get Another Quiz",
     "custom": "Custom",
     "tableNumber": "Table Number",
-    "of": "of"
+    "of": "of",
+    "arithmeticOperation": "arithmetic Operation",
+    "addition": "Addition",
+    "subtraction": "Subtraction",
+    "multiplication": "Multiplication",
+    "division": "Division",
+    "numberOfQuestions": "Number of Questions",
+    "calculate": "Calculate",
+    "simple": "Simple",
+    "intermediate": "Intermediate",
+    "challenging": "Challenging",
+    "difficultyLevel": "Difficulty Level"
   },
   "result": {
     "youHaveGot": "You have Got",
