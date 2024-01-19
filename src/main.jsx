@@ -34,10 +34,14 @@ i18next.init({
 });
 
 // fix 100vh problem on mobile screens
-// when defined mobile screen size matches, set initial height:
+// when the defined mobile screen size matches, set initial height:
 const deviceWidth = window.matchMedia('(max-width: 1024px)');
-if (deviceWidth.matches) {
+const setHeight = () => {
   document.getElementById('root').style.minHeight = window.innerHeight + 'px';
+};
+window.addEventListener('resize', setHeight);
+if (deviceWidth.matches) {
+  setHeight();
 }
 
 ReactDOM.createRoot(document.getElementById('root')).render(
