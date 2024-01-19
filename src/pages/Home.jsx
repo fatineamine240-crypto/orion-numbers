@@ -10,15 +10,15 @@ export default function Home() {
   return (
     <>
       <nav className="bg-white shadow dark:bg-gray-800 transition-colors duration-300 mb-4 rounded">
-        <ul className="container flex flex-wrap items-center gap-6 p-4 md:px-6 md:py-5 mx-auto text-gray-600 capitalize dark:text-gray-300 transition-colors duration-300">
+        <ul className="container flex flex-wrap items-center gap-6 p-4 md:px-6 md:py-5 mx-auto text-gray-600 capitalize dark:text-gray-200 transition-colors duration-300">
           {quizComponents.map((type, index) => {
             return (
               <li
                 key={type.name}
                 className={`cursor-pointer transition-colors duration-300 transform border-b-2 ${
                   index === activeTabIndex
-                    ? 'text-gray-800 dark:text-gray-200 border-teal-500'
-                    : 'border-transparent hover:text-gray-800 dark:hover:text-gray-200 hover:border-teal-500'
+                    ? 'text-gray-800 dark:text-gray-100 border-teal-500'
+                    : 'border-transparent hover:text-gray-800 dark:hover:text-gray-100 hover:border-teal-500'
                 }`}
                 onClick={() => setActiveTabIndex(index)}
               >
