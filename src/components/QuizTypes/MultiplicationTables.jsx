@@ -69,15 +69,15 @@ export default function TimesTable() {
         name="order"
         options={[
           {
-            value: 'ascending',
+            value: OrderOptions[0],
             label: t('math.ascending'),
           },
           {
-            value: 'descending',
+            value: OrderOptions[1],
             label: t('math.descending'),
           },
           {
-            value: 'random',
+            value: OrderOptions[2],
             label: t('math.random'),
           },
         ]}
