@@ -85,15 +85,33 @@ export const generateArithmeticQuestions = (
 ) => {
   const questions = [];
 
-  let numDigits1 = 2;
-  let numDigits2 = 1;
+  let numDigits1;
+  let numDigits2;
 
-  if (difficulty === DIFFICULTY_OPTIONS['INTERMEDIATE']) {
-    numDigits1 = 3;
-    numDigits2 = 2;
-  } else if (difficulty === DIFFICULTY_OPTIONS['CHALLENGING']) {
-    numDigits1 = 4;
-    numDigits2 = 3;
+  switch (difficulty) {
+    case DIFFICULTY_OPTIONS['CHALLENGING']:
+      if (operator === 'division') {
+        numDigits1 = 2;
+        numDigits2 = 3;
+      } else {
+        numDigits1 = 4;
+        numDigits2 = 3;
+      }
+      break;
+
+    case DIFFICULTY_OPTIONS['INTERMEDIATE']:
+      if (operator === 'multiplication' || operator === 'division') {
+        numDigits1 = 2;
+        numDigits2 = 2;
+      } else {
+        numDigits1 = 3;
+        numDigits2 = 2;
+      }
+      break;
+
+    default:
+      numDigits1 = 2;
+      numDigits2 = 1;
   }
 
   for (let i = 0; i < numOfQuestions; i++) {
@@ -102,7 +120,7 @@ export const generateArithmeticQuestions = (
 
     if (operator === 'division') {
       operand2 = generateRandomNumber(numDigits2);
-      operand1 = operand2 * generateRandomNumber(numDigits2);
+      operand1 = operand2 * generateRandomNumber(numDigits1);
     } else {
       operand1 = generateRandomNumber(numDigits1);
       operand2 = generateRandomNumber(numDigits2);
