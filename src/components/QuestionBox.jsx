@@ -36,7 +36,7 @@ export default function QuestionBox({
 
       <div>
         <h5 className="mb-2 pt-5 text-xl font-medium leading-tight">
-          <span>{currentQuestion} =</span>
+          <span>{currentQuestion?.replace('x', '\u00D7')} =</span>
         </h5>
         <Form onSubmit={handleSubmit}>
           <div className="flex justify-center items-center gap-4 min-h-[40px]">
