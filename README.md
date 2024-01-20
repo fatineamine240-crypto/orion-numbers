@@ -7,6 +7,8 @@ An interactive math-solving web app designed for kids, making learning math a fu
 - Multi-language support (Arabic and English)
 - Dark theme
 - Math quizzes
+- Sound effects and visual feedback for each answer
+- Special celebration for perfect score
 
 ## Getting Started
 
