@@ -61,7 +61,7 @@ export default function QuestionBox({
             )}
           </div>
 
-          <div className="py-5 !mt-5 border-t-2">
+          <div className="pt-5 !mt-5 border-t-2">
             <Button
               type="submit"
               text={!isAnswered ? t('math.checkAnswer') : t('math.answered')}
