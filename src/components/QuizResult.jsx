@@ -8,24 +8,26 @@ export default function QuizResult({ result, total }) {
   // eslint-disable-next-line
   const [t, i18n] = useTranslation('global');
   const navigate = useNavigate();
-  const [grade, setGrade] = useState(t('result.keepPracticing'));
+  const [grade, setGrade] = useState('keepPracticing');
   const [quizTypeUrl, setQuizTypeUrl] = useState('/');
 
   useEffect(() => {
     const percentage = (result / total) * 100;
 
-    if (percentage === 100) setGrade(t('result.perfect'));
-    else if (percentage >= 90) setGrade(t('result.excellent'));
-    else if (percentage >= 80) setGrade(t('result.greatJob'));
-    else if (percentage > 50) setGrade(t('result.goodEffort'));
+    if (percentage === 100) setGrade('perfect');
+    else if (percentage >= 90) setGrade('excellent');
+    else if (percentage >= 80) setGrade('greatJob');
+    else if (percentage > 50) setGrade('goodEffort');
 
     const urlParams = new URLSearchParams(window.location.search);
     setQuizTypeUrl('/?type=' + urlParams.get('type'));
-  }, [result, total, t]);
+  }, [result, total]);
 
   return (
     <Container className="space-y-4">
-      <h2 className="text-3xl font-bold text-teal-500">{grade}</h2>
+      <h2 className="text-3xl font-bold text-teal-500">
+        {t(`result.${grade}`)}
+      </h2>
 
       <p className="text-lg">
         {`${t('result.youHaveGot')} ${result} ${t('result.outOf')} ${total}`}
